@@ -51,6 +51,27 @@
                     required
                   />
                 </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="description"
+                    placeholder="description"
+                    class="form-control"
+                    autofocus
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="author"
+                    placeholder="author"
+                    class="form-control"
+                    autofocus
+                    required
+                  />
+                </div>
+
                 <button type="submit" class="btn btn-primary btn-block">
                   Save
                 </button>
@@ -67,13 +88,10 @@
                 <div class="card-title text-center mt-3">
                   <h5>{{book.title}}</h5>
                   <span class="badge badge-pill badge-warning ml-2">
-                    alta
+                    {{book.author}}
                   </span>
                 </div>
-                <div class="card-body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet,
-                  ut?
-                </div>
+                <div class="card-body">{{book.description}}</div>
                 <div class="card-footer text-center">
                   <span
                     ><a
