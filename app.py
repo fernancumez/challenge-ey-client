@@ -23,7 +23,14 @@ def home():
 @app.route("/create-book", methods=["POST"])
 def create():
    url = "http://localhost:8000/api/books"
-   payload = {"isbn": request.form["isbn"], "title": request.form["title"]}
+
+   payload = {
+      "isbn": request.form["isbn"],
+      "title": request.form["title"],
+      "description": request.form["description"],
+      "author": request.form["author"]
+   }
+
    headers = {"Content-Type": "application/json"}
 
    res = requests.post(url, data=json.dumps(payload), headers=headers)
