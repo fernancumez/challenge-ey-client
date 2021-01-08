@@ -27,7 +27,7 @@
         <div class="col-md-4 text-center">
           <div class="card">
             <div class="card-header">
-              <h4>Formulario</h4>
+              <h4>Save Book</h4>
             </div>
             <div class="card-body">
               <form action="/create-book" method="POST">
@@ -71,6 +71,17 @@
                     required
                   />
                 </div>
+                <div class="form-group">
+                  <input
+                    type="number"
+                    step="any"
+                    name="price"
+                    placeholder="price"
+                    class="form-control"
+                    autofocus
+                    required
+                  />
+                </div>
 
                 <button type="submit" class="btn btn-primary btn-block">
                   Save
@@ -92,6 +103,8 @@
                   </span>
                 </div>
                 <div class="card-body">{{book.description}}</div>
+
+                <h6 class="text-center mb-4">Price: {{book.price}}$</h6>
                 <div class="card-footer text-center">
                   <span
                     ><a
