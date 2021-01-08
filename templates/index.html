@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Book App</title>
+    <!-- BOOTSTRAP 4 -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css"
+    />
+    <!-- FONTS -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}" />
+  </head>
+
+  <body>
+    <main class="container p-4">
+      <h1 class="display-4 text-center title mt-4">Book App</h1>
+      <div class="row mt-4">
+        <div class="col-md-4 text-center">
+          <div class="card">
+            <div class="card-header">
+              <h4>Formulario</h4>
+            </div>
+            <div class="card-body">
+              <form action="/create-book" method="POST">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="isbn"
+                    placeholder="isbn"
+                    class="form-control"
+                    autofocus
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="title"
+                    placeholder="title"
+                    class="form-control"
+                    autofocus
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                  Save
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="row">
+            {% for book in books %}
+            <div class="col-md-4" key="{{book._id}}">
+              <div class="card mt-4">
+                <div class="card-title text-center mt-3">
+                  <h5>{{book.title}}</h5>
+                  <span class="badge badge-pill badge-warning ml-2">
+                    alta
+                  </span>
+                </div>
+                <div class="card-body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet,
+                  ut?
+                </div>
+                <div class="card-footer text-center">
+                  <span
+                    ><a
+                      href="{{url_for('delete', id=book._id)}}"
+                      class="btn btn-danger"
+                      >Delete</a
+                    ></span
+                  >
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
