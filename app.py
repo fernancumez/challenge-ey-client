@@ -28,7 +28,8 @@ def create():
       "isbn": request.form["isbn"],
       "title": request.form["title"],
       "description": request.form["description"],
-      "author": request.form["author"]
+      "author": request.form["author"],
+      "price": float(request.form["price"]),
    }
 
    headers = {"Content-Type": "application/json"}
